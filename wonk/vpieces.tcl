@@ -97,7 +97,7 @@ proc initPieces {} {
     foreach type {bard fool herald} {
 	foreach player {1 2} {
 	    foreach stripe {a b} {
-		set name "$type$player$stripe"
+		set name "${type}.${player}.${stripe}"
 		set pieceColors($name) $playerColors($player)
 		set pieceShapes($name) $typeShapes($type)
 	    }
@@ -109,14 +109,28 @@ initPieces;
 
 #=====================================================================
 # Piece Naming
-#  + piece names are of the form "${type}${player}${stripe}",
+#  + piece names are of the form "${type}.${player}.${stripe}",
 #    where:
 #     - type = bard | fool | herald
 #     - player = 1 | 2
 #     - stripe = a | b
 #=====================================================================
 proc pieceName {pieceType piecePlayer pieceStripe} {
-    return "${pieceType}${piecePlayer}${pieceStripe}"
+    return "${pieceType}.${piecePlayer}.${pieceStripe}"
+}
+
+# {type player stripe} = pieceSpecs($name)
+proc pieceSpecs {pieceName} {
+    return [split $pieceName .]
+}
+proc pieceType {pieceName} {
+    return [lindex [pieceSpecs $pieceName] 0]
+}
+proc piecePlayer {pieceName} {
+    return [lindex [pieceSpecs $pieceName] 1]
+}
+proc pieceStripe {pieceName} {
+    return [lindex [pieceSpecs $pieceName] 2]
 }
 
 #=====================================================================
@@ -125,16 +139,17 @@ proc pieceName {pieceType piecePlayer pieceStripe} {
 proc placePiece {pcType pcPlayer pcStripe spSeg spSkew spTier} {
     placePieceNamed \
 	[pieceName $pcType $pcPlayer $pcStripe] \
-	[NameSpace $spSeg $spSkew $spTier]
+	[NameSpace $spSeg $spSkew $spTier] \
+	"pt:$pcType pp:$pcPlayer ps:$pcStripe"
 }
-proc placePieceNamed {pieceName spaceName} {
+proc placePieceNamed {pieceName spaceName {tags {}}} {
     global colorSpecs pieceLocs pieceColors pieceShapes pieceBaseLen
     global BoardRadius pieceScaleFactor
     draw$pieceShapes($pieceName) \
 	[expr double($pieceScaleFactor*$BoardRadius)] \
 	[NamedSpaceCenter $spaceName] \
 	$colorSpecs($pieceColors($pieceName))\
-	$pieceName "piece $pieceShapes($pieceName)"
+	$pieceName [concat pn:$pieceName $tags piece]
     set pieceLocs($pieceName) $spaceName
 }
 

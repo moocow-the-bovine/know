@@ -65,7 +65,12 @@ source "board.tcl"
 #source "ipieces.tcl" ;# image-based
 source "vpieces.tcl" ;# vector-based
 
+;# ======================== User-Interface =========================
+source "ui.tcl"
+
+
 ;# =========================== Hacks ==============================
+set DEVEL 0
 if {$DEVEL} {
     source "marks.tcl"
     source "hacks.tcl"
@@ -93,7 +98,7 @@ proc ResizeTopLevel {} {
 	CanvasX CanvasY AutoResize BoardRadius \
 	BoardPadMin BoardPad pieceScaleFactor
     if {$AutoResize && ($CanvasX != [winfo width .c] || $CanvasY != [winfo height .c])} {
-	#puts "BoardPadMin={$BoardPadMin} BoardPad={$BoardPad} \
+	;#puts "BoardPadMin={$BoardPadMin} BoardPad={$BoardPad} \
 	       pieceScaleFactor={$pieceScaleFactor}"
 	set CanvasX [winfo width  .c]
 	set CanvasY [winfo height .c]
