@@ -1,0 +1,167 @@
+% -*- Mode: LaTeX -*-
+%        File: know.tex
+%      Author: Bryan Jurish <moocow@ling.uni-potsdam.de>
+% Description: know rules
+%---------------------------------------------------------------------------
+
+%\documentclass[12pt,twoside]{article}
+\documentclass[12pt,a4paper]{article}
+\usepackage{eepic}
+\usepackage{graphicx}
+\usepackage{html}
+\usepackage{hthtml}
+\usepackage{fancyhdr}
+\usepackage{ifthen}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage{yfonts}[1998/10/03]
+\usepackage{hyperref}
+
+\parindent 0mm
+\parskip 2mm
+
+%--------------------------------------
+% commands, widths, lengths
+%--------------------------------------
+
+%--------------------------------------
+% general
+%   + also available: \ispdf (computed)
+%--------------------------------------
+\newcommand{\iscolor}{1}     % color version?
+\newcommand{\istwosided}{0}  % 2-sided version?
+\newcommand{\islores}{0}     % low-resolution version: obsolete!
+
+%--------------------------------------
+% macros
+%--------------------------------------
+\input{kmacros.tex}
+\input{klogos.tex}
+
+
+\begin{document}
+%%--TEST
+%%ispdf: \ispdf\par
+%%iscolor: \iscolor\par
+%%istwosided: \istwosided\par
+%%--END TEST
+%
+%----------------------------------------------------------------
+% Title Page
+%----------------------------------------------------------------
+\renewcommand{\thepage}{} % no page number for the front matter
+%
+\begin{latexonly}
+  \input{title-latex.tex}
+\end{latexonly}
+\begin{htmlonly}
+  \input{title-html.tex}
+\end{htmlonly}
+%
+%
+%----------------------------------------------------------------
+% acknowledgements (here?)
+%----------------------------------------------------------------
+\begin{latexonly}
+\cleardoublepage
+\vspace*{3cm}
+\begin{center}{\large \bf Acknowledgements}\end{center}\par
+\input{admin/acknowledge.tex}
+\end{latexonly}
+%
+%----------------------------------------------------------------
+% Headers (from the 'fancyhdr' package)
+%----------------------------------------------------------------
+\cleardoublepage
+\pagestyle{fancy}
+\fancyhead{} % clear headings
+\fancyfoot{} % and footings too
+\latex{\ifthenelse{\equal{\istwosided}{1}}{\input{headers-2sided.tex}}{\input{headers-1sided.tex}}}
+%
+%
+%----------------------------------------------------------------
+% toc, lof
+%----------------------------------------------------------------
+\setcounter{page}{1}
+\renewcommand{\thepage}{\roman{page}} % little roman numerals
+\tableofcontents
+%\newpage
+\listoffigures
+\cleardoublepage
+%
+%
+%
+%----------------------------------------------------------------
+% Document Body
+%----------------------------------------------------------------
+\renewcommand{\thepage}{\arabic{page}} % now, number pages arabically
+\setcounter{page}{1}                   % ... and reset the counter
+\pagestyle{fancy}                      % ... and print fancy headers
+%
+%
+\section{Administrivia}\label{admin}
+  \html{\subsection{Acknowledgements}\input{admin/acknowledge.tex}}
+  \subsection{Legal Stuff}\label{legal}
+    \input{admin/legal.tex}
+  \subsection{New Versions of This Document}\label{docversions}
+    \input{admin/docversions.tex}
+  \subsection{Change History}\label{history}
+    \input{admin/history.tex}
+  \subsection{Feedback and Corrections}\label{feedback}
+    \input{admin/feedback.tex}
+  %\subsection{Todo List}\label{todo}
+    %\input{admin/todo.tex}
+%
+%
+%
+\section{Concerning the Playing Board}\label{layout}
+  \input{rules/layout.tex}
+%
+%
+\section{Concerning the Playing Pieces}\label{pieces}
+  \input{rules/pieces.tex}
+%
+%
+\section{Concerning Movement}\label{movement}
+  \input{rules/movement.tex}
+%
+%
+\section{Concerning Connections and Resolution}\label{connectres}
+  \input{rules/connect.tex}
+%
+%
+\section{Versions of the Game}\label{versions}
+  \input{rules/versions.tex}
+%
+%
+\section{Some Hints}\label{hints}
+  \input{rules/hints.tex}
+%
+%
+\appendix
+\section{Bonus Rules}\label{bonus}
+  \input{rules/bonus.tex}
+
+\cleardoublepage
+\section{The Game Board}\label{board}
+  \latex{%
+    \vspace*{15mm}%
+    \includegraphics*[width=\textwidth]{pics/theboard.\pspdf}%
+    }
+  \begin{rawhtml}
+    <center><img align="center" src="theboard.png"></center>
+  \end{rawhtml}
+
+%\section{Test 123}
+%  \begin{center}
+%    \includegraphics[height=6cm]{pics/board.ps}
+%    \raisebox{2cm}{\includegraphics[height=2cm]{pics/sphere-red.ps}}
+%  \end{center}
+%\input{placement.pstex_t}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

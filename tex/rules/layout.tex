@@ -1,0 +1,175 @@
+% -*- Mode: LaTeX -*-
+%        File: layout.tex
+%      Author: Bryan Jurish <moocow@ling.uni-potsdam.de>
+% Description: know rules: board-layout
+%
+%---------------------------------------------------------------------------
+% \section{Concerning the Layout of the Playing Board}\label{layout}
+%---------------------------------------------------------------------------
+
+\know\ is played on a board constructed from sixteen points
+evenly distributed about the circumference of a circle by
+connecting certain pairs of points.  \appref{board} contains
+a version of the \know\ board.
+
+%---------------------------------------------------------------------------
+\subsection{Spaces and Borders}\label{spaces}
+
+  The \know\ board is divided into exactly one hundred {\bf spaces}, each
+  of which {\bf borders on} a number of spaces of the opposite color.
+  A space is said to ``border on'' another space if the two spaces share
+  a common {\sl side}.  Spaces sharing only a single common {\sl corner} do not
+  border on one another.  In particular, the center of the board itself
+  is a corner rather than a space.
+
+  As a consequence of this definition and the coloring conventions
+  for spaces, any unfilled (white) space will border only on
+  filled (black) spaces, and any filled space will border only on
+  unfilled spaces.
+
+
+
+%---------------------------------------------------------------------------
+\subsection{Dimensions and Directions}\label{directions}
+
+  There are four main {\bf dimensions} (or ``axes'')
+  which can be identified on the \know\ board.  In terms of these
+  dimensions, eight {\bf directions} may be defined.
+  Some of these terms might even be used later in this document.
+
+  The four axes and their associated directions are as follows:
+
+  \begin{itemize}
+  \item {\bf Horizontal Axis}
+    \begin{itemize}
+    \item {\sl Forward}\\
+      Proceeding from the player's corner-space to the
+      opposing player's corner-space.
+    \item {\sl Backward}\\
+      Proceeding from the opposing player's
+      corner-space to the player's corner-space.
+    \end{itemize}
+    
+  \item {\bf Vertical Axis}\\
+    The vertical axis is (intuitively) perpendicular to the horizontal
+    axis.  It is not particularly useful.
+    %\begin{itemize}
+    %\item {\sl Up}
+    %\item {\sl Down}
+    %\end{itemize}
+
+  \item {\bf Radial Axis}
+    \begin{itemize}
+      \item {\sl Hubwards}\\
+        Proceeding from the outer edge of the board towards
+        the center of the board, or ``hub''.
+      \item {\sl Rimwards}\\
+        Proceeding from the center of the board towards the
+        outer edge, or ``rim''.
+    \end{itemize}
+
+  \item {\bf Rotational Axis}
+    \begin{itemize}
+      \item {\sl Turnwise}\\
+        Proceeding from left to right while remaining a fixed distance
+        from the hub -- also known as ``clockwise''.
+      \item {\sl Widdershins}\\
+        Proceeding from right to left while remaining a fixed distance
+        from the hub -- also known as ``counter-clockwise''.
+    \end{itemize}
+  \end{itemize}
+
+The directions listed above are not always mutually exclusive --
+for example, one movement may be understood as proceeding in both a
+forward and turnwise direction.  The differences between the various
+directions can be understood as stemming from the distinction between
+player-relative directions (such as ``forward'') and board-absolute
+directions (such as ``hubwards'').
+
+%---------------------------------------------------------------------------
+\subsection{Tiers}\label{tiers}
+
+  The board is divided into four {\bf Tiers} (or ``levels''), each of which
+  constitutes an implied square on the playing board. 
+  The descriptions in the rest of this section refer to
+  \figref{tiers_fig}\latex{ on page \pageref{tiers_fig}}.
+
+  %
+    \begin{figure}
+      \begin{center}
+        % lengths & commands for key
+        \newlength{\tierboxh}
+        \setlength{\tierboxh}{1em}
+        \newcommand{\tierbox}[1]{%
+          \raisebox{-3pt}{\includegraphics*[height=\tierboxh]{pics/#1-box-\bwcolor.\pspdf}}%
+        }
+        % key
+        \makeimage{%
+          \latex{
+            \begin{tabular}{|rl|}
+              \hline
+              \multicolumn{2}{|c|}{\bf Key}\\
+              Center Tier: & \tierbox{center}\\
+              Second Tier: & \tierbox{tier2}\\
+              First Tier: & \tierbox{tier1}\\
+              Rim/First Ambiguous: & \tierbox{ambig}\\
+              Rim: & \tierbox{rim}\\
+              \hline
+            \end{tabular}
+            \par
+            % figure
+            \includegraphics*[width=0.9\textwidth]{pics/tiers-\bwcolor.\pspdf}%
+          }
+        }
+        \begin{rawhtml}
+          <img src="tiers-key.png">
+          <br>
+          <img src="tiers.png">
+        \end{rawhtml}
+        \caption{An Illustration of the Game's Four Tiers}
+        \label{tiers_fig}
+      \end{center}
+    \end{figure}
+
+
+\subsubsection{Center Tier}
+A space is said to be in the {\bf Center Tier} if the
+center of the board is one of its corners.  The Center Tier
+contains sixteen spaces.
+
+\subsubsection{Second Tier}
+Any space which is not in the Center Tier, but which shares
+all of its corners with some space sharing at least one
+corner with a space in the Center Tier is said to be
+in the {\bf Second Tier}.
+
+Formally, for a space $S$, $S$ is in the Second Tier
+if and only if for every point $p$ which is a corner
+of $S$, there exists a point $p^\prime$ and spaces
+$S_p$ and $S_p^\prime$ such that $p$ is a corner
+of $S_p$, $p^\prime$ is a corner shared by both
+$S_p$ and $S_p^\prime$,
+and $S_p^\prime$ is in the Center Tier.
+In most cases, $S_p = S$.
+
+The Second Tier contains thirty-two spaces.
+
+\subsubsection{First Tier}
+A space is said to be in the {\bf First Tier} if it is neither
+in the Center Tier nor in the Second Tier, and if it shares at
+least one corner with some space in the Second Tier.  The First Tier
+contains thirty-two spaces.
+
+\subsubsection{Rim}
+A space is said to be a member of the {\bf Rim Tier}, or ``on the Rim''
+if one of its borders is an edge of the board itself.
+The Rim contains twenty-four spaces, four of which also belong
+to the First Tier.  These four triangular spaces are known as
+``ambiguous'' spaces.
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "~/text/projects/know/tex/know"
+%%% End: 

@@ -1,0 +1,9 @@
+auto
+know-bw-*
+know-color-*
+know-*-[12]sided*
+*~
+*.aux
+*.log
+*.toc
+*.lof

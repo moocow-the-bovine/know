@@ -1,0 +1,218 @@
+% -*- Mode: LaTeX -*-
+%        File: movement.tex
+%      Author: Bryan Jurish <moocow@ling.uni-potsdam.de>
+% Description: know rules: movement
+%
+%---------------------------------------------------------------------------
+% \section{Concerning Movement}\label{movement}
+%---------------------------------------------------------------------------
+
+\subsection{Dice}\label{dice}
+The standard version of \know\ requires at least one six-sided (cubical)
+die to play.
+
+\subsection{Turns}\label{turns}
+  \subsubsection{Initiation}\label{turn_begin}
+  A player's turn begins when he or she receives the die (or dice) from
+  the opposing player.
+  \subsubsection{Conclusion}\label{turn_end}
+  A player's turn has officially ended when he or she removes his or her
+  dice from the board or equivalent rolling surface.
+
+\subsection{Rolling}\label{rolling}
+In some special cases,
+such as the 
+Significant Errand
+or the Solipsistic Path
+a player must announce his or her intention to invoke
+an exceptional movement rule before the die is cast.
+Normally, however, a player may roll as soon as his or her
+turn begins.  See \secref{move_except} for details on
+exceptional movement rules.
+
+\subsection{Jumps}\label{jumps}
+For each die rolled, a player must move exactly one piece.
+Some variats of \know\ require the player to roll more than one
+die per turn, but in this Section I will assume that each player
+rolls exactly one six-sided die per turn, and consequently moves
+exactly one piece per turn.
+
+The piece which is chosen to be moved must make exactly as many
+{\bf jumps} as the die roll indicates.  From any space on the board,
+a piece may ``jump'' once to any of the spaces which
+border\footnote{See \secref{spaces} for a definition of ``borders''}
+on the space it is currently occupying.
+
+Since bordering spaces are necessarily of opposite color
+to the space occupied, it is often more important for determining
+a move whether the die roll is even or odd.  With an even die roll,
+the piece moved must upon ending its move occupy a space of the
+same color as the space on which it began its move.  With an odd
+die roll, the piece moved must occupy a space of the opposite color
+at the end of its move.
+
+\subsection{Redundant Paths}\label{redundant}
+A piece may not occupy the same space more than once in the course
+of one movement.  This means that no space may be jumped into or out
+of more than once in one movement.  In other words, a piece cannot
+go back on its own path in one turn, nor can a piece make a loop on
+the board, ending its movement by jumping into the same space
+which it occupied at the beginning of that turn.  Such
+movements are known as {\sl redundant paths}.
+
+\subsection{Mandatory Movement}\label{mandatory}
+If any piece can be jumped the exact number of spaces indicated by a
+player's die roll, then some move must be made -- a player cannot
+choose to ``pass'' his or her turn, but must move some piece if at
+all possible.
+
+
+
+%---------------------------------------------------------------------------
+% Influence
+%---------------------------------------------------------------------------
+\subsection{Influence}\label{influence}
+
+A piece is said to {\bf influence} every space bordering on that space which
+it currently occupies.  No piece of another player may jump either into or
+through such an {\bf influenced space},
+except in the exceptional cases of 
+the Exceptional Movement Rules, as described in
+\secref{move_except}.
+
+Under no conditions may a piece jump either into or through a
+space occupied by another piece, even if that piece belongs to
+the same player.  This restriction applies even to moves
+falling under the Exceptional Movement Rules of \secref{move_except}.
+
+\subsubsection{Points of Contention}\label{contention}
+A {\bf point of contention} is a space on the board influenced by two
+pieces of opposite color.  Movement through points of contention is
+possible by means of the Exceptional Movement Rules described in
+\secref{move_except}, but is otherwise not allowed.
+
+Under no conditions may any piece occupy a point of contention
+at the end of its movement.
+
+
+%---------------------------------------------------------------------------
+% Exceptional Movements
+%---------------------------------------------------------------------------
+\subsection{Exceptional Movements}\label{move_except}
+
+%---------------------------------------------------------------------------
+% Significant Errand
+%---------------------------------------------------------------------------
+\subsubsection{The Significant Errand}\label{errand}
+
+If a piece is entirely surrounded by points of contention -- that is, if there are no moves
+possible for that piece, it is said to be ``locked out''.  In this case, the player
+belonging to that piece may, when his or her turn comes, roll the
+die (or dice, as the case may be) and request
+a {\bf Significant Errand}, based on his or her die roll for
+that turn.  Resolution of Significant Errands proceeds as follows:
+
+  \begin{enumerate}
+  \item
+    The player with the locked out piece rolls the die
+    as usual at the start of his or her turn.
+
+  \item
+    If the roll is such that the locked out piece could move exactly
+    that number of spaces, disregarding all points of contention and
+    spaces influenced by pieces of the opposing color, the player
+    with the locked out piece may at this point request a
+    {\bf Significant Errand}.
+
+  \item
+    The opposing player rolls the die.
+
+  \item
+    If the opposing player's die roll is greater than the locked
+    out player's initial roll, the locked out player must move
+    some other piece, with the normal rules regarding points of
+    contention and influenced spaces still applying.
+
+  \item
+    If the locked out player's roll is higher, then he or she must
+    move his or her locked-out piece, provided that the piece, on completing its move
+    of the player's initial die roll, finds itself in a space not
+    controlled by the opposing player, and not on the same space as
+    any other piece.
+  \end{enumerate}
+
+
+%---------------------------------------------------------------------------
+% Solipsistic Path
+%---------------------------------------------------------------------------
+\subsubsection{The Solipsistic Path}\label{sopath}
+
+It often happens that at least one color will manage to build a
+``wall'' of influenced spaces across one and/or both sides of the board,
+effectively preventing the other player from moving his or her pieces
+through to the opposite side
+(which is necessary to achieve Resolution -- see \secref{connectres}).
+
+Although it is possible to play entire games without invoking this rule, if it is
+entirely impossible for pieces to move through points of contention, then there
+is also the possibility that the game will never be Resolved.  So, if a player
+wants very much for one of his/her/its/their beloved pieces to reach the opposite
+half of the board, and if the opposing player has built a wall of influence
+across the board such that the piece which is to be sent on its way must pass
+through at least one point of contention to reach its intended destination,
+then the player who wishes to venture across the point of contention may
+invoke the {\bf Solipsistic Path}, by the following procedure:
+
+  \begin{enumerate}
+  \item
+    The player who wishes to pass through the Point of Contention declares
+    their intention to do so before they roll the die, and point out which
+    space is being contended.
+
+    The Point of Contention being challenged must have existed for at least
+    one roll of both players' dice before either player may invoke the
+    {\bf Solipsistic Path}.  The rationale here is that each player should
+    have had a chance to ``back down'' before this rule is invoked.
+
+  \item
+    The mover (the player of the piece which is attempting to move
+    through a Point of Contention) and the contender (the player whose
+    piece(s) is/are blocking the mover's intended path) roll one
+    six-sided die each.
+
+  \item\label{sp_tally}
+    Both the mover and the contender count the number of spaces influenced
+    by any of their pieces whose influence also extends over the Point of
+    Contention to be traversed, discounting any points of contention among
+    those influenced spaces, and add these numbers to their die rolls.
+
+  \item
+    If the contender's tally from Step \ref{sp_tally} is greater than the
+    mover's tally, then the mover's turn is forfeit: none of the mover's
+    pieces may be moved on this turn, and the die gets passed to the contender.
+
+  \item
+    If the tallies are equal, the players should roll again until one player's
+    tally is higher.
+
+  \item\label{sopath_nope}
+    If the mover's tally is greater than the contender's, then the mover must move
+    the piece for which the Solipsistic Path was declared exactly the number of spaces
+    indicated by his/her die roll, (ignoring the addition of influenced spaces which
+    were used to determine the outcome of the Solipsistic Path), moving first into the
+    Point of Contention which was challenged, and passing through any number of points
+    of contention, provided that the piece, on finishing its move, occupies a space which
+    is not influenced by a piece of the opposite color, or occupied by any other piece.
+
+  \item\label{sopath_noso}
+    If the mover's tally was greater, but movement of the Solipsistic Piece was
+    impossible (i.e. there was no possible destination under that die roll which was not
+    influenced by a piece of the contender's), then
+    the mover's turn is forfeit.
+    %the mover must move some other piece on that turn.
+  \end{enumerate}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "~/text/projects/know/tex/know"
+%%% End: 

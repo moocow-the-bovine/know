@@ -1,0 +1,71 @@
+% -*- Mode: LaTeX -*-
+%        File: klogos.tex
+%      Author: Bryan Jurish <moocow@ling.uni-potsdam.de>
+% Description: know rules: logos
+%---------------------------------------------------------------------------
+%
+
+% fonts
+\newcommand{\klogofontTT}[1]{{\tt #1}}
+\newcommand{\klogofontG}[1]{\textgoth{#1}}
+\newcommand{\klogofont}[1]{\klogofontTT{#1}}
+
+% widths
+\newlength{\Hugeowidth}
+\settowidth{\Hugeowidth}{\mbox{\Huge\klogofont{o}}}\addtolength{\Hugeowidth}{2mm}
+\newlength{\normalowidth}
+\settowidth{\normalowidth}{\mbox{\klogofont{o}}}\addtolength{\normalowidth}{2pt}
+\newlength{\largeowidth}
+\settowidth{\largeowidth}{\mbox{\large{\tt o}}}\addtolength{\largeowidth}{2pt}
+
+% logos
+\newcommand{\klogonormal}{%
+  \klogofont{%
+    k\ %
+    n\ %
+    \boardglobe{-1pt}{\normalowidth}%
+    \ w%
+  }%
+}
+
+\newcommand{\know}{%
+  \latex{\ifthenelse{\equal{\islores}{1}}{\klogofont{know}}{\knowlatex}}%
+  \html{\knowhtml}%
+}
+\newcommand{\knowlatex}{%
+  \klogofont{kn\boardglobe{-1pt}{\normalowidth}w}%
+}
+\newcommand{\knowhtml}{%
+  \begin{rawhtml} <img alt="know" src="know-name-small.png">\end{rawhtml}%
+}
+
+\newcommand{\klogolarge}{%
+  {\large%
+    \klogofont{%
+      k\ %
+      n\ %
+      \boardglobe{-1pt}{\largeowidth}%
+      \ w%
+    }%
+  }%
+}
+
+\newcommand{\klogoHuge}{%
+  {\Huge%
+    \klogofont{%
+      k\ %
+      n\ %
+      \boardglobe{-3pt}{\Hugeowidth}%
+      \ w%
+    }%
+  }%
+}
+
+%\newcommand{\klogo}{\klogonormal}
+\newcommand{\klogo}{\klogolarge}
+\newcommand{\klogolores}{\klogofont{k n o w}}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: know
+%%% End: 

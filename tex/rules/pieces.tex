@@ -1,0 +1,113 @@
+% -*- Mode: LaTeX -*-
+%        File: pieces.tex
+%      Author: Bryan Jurish <moocow@ling.uni-potsdam.de>
+% Description: know rules: pieces
+%
+%---------------------------------------------------------------------------
+% \section{Concerning the Playing Pieces}\label{pieces}
+%---------------------------------------------------------------------------
+
+\subsection{Naming Conventions}\label{pnames}
+Twelve pieces are required for a game of \know, six per ``alignment''
+(or ``color'' or ``side'').
+The two sets of six pieces are divided into three types, so
+that each alignment (i.e. each player in a two-player game) has two
+representatives of each of the three classes of game piece.
+The three classes of game piece are:
+
+\newlength{\pieceheight}
+\setlength{\pieceheight}{1.5em}
+
+\begin{itemize}
+\item
+  {\bf Bards}
+  \hfill
+  \latex{
+    \includegraphics*[height=\pieceheight]{pics/bard1-\bwcolor.\pspdf}
+    \includegraphics*[height=\pieceheight]{pics/bard2-\bwcolor.\pspdf}
+    }
+  \begin{rawhtml}
+    <img src="bard1.png">
+    <img src="bard2.png">
+  \end{rawhtml}
+  \\
+  A less wealthy mode of nobility,
+  Bards are the pieces with the strongest initial position.
+  They are represented as cups, spheres, or unmarked stones.
+
+  \item
+    {\bf Fools}
+    \hfill
+    \latex{
+      \includegraphics*[height=\pieceheight]{pics/fool1-\bwcolor.\pspdf}
+      \includegraphics*[height=\pieceheight]{pics/fool2-\bwcolor.\pspdf}
+      }
+    \begin{rawhtml}
+      <img src="fool1.png">
+      <img src="fool2.png">
+    \end{rawhtml}
+    \\
+    High-ranking clergy of general silliness,
+    Fools are represented as bells, cones, or stones marked
+    with a zero (``0'').
+
+  \item
+    {\bf Heralds}
+    \hfill
+    \latex{
+      \includegraphics*[height=\pieceheight]{pics/herald1-\bwcolor.\pspdf}
+      \includegraphics*[height=\pieceheight]{pics/herald2-\bwcolor.\pspdf}
+      }
+    \begin{rawhtml}
+      <img src="herald1.png">
+      <img src="herald2.png">
+    \end{rawhtml}
+    \\
+    Non-violent victims of the medieval military establishment,
+    Heralds are represented as flags, cylinders, or stones marked
+    with a one (``1'').
+\end{itemize}
+
+The two pieces of the same type and color may be distinguished from
+one another by the presence or absence of a {\sl stripe}.  That is,
+each player has the following set of pieces:
+\begin{itemize}
+  \item Bard (striped)
+  \item Bard (unstriped)
+  \item Fool (striped)
+  \item Fool (unstriped)
+  \item Herald (striped)
+  \item Herald (unstriped)
+\end{itemize}
+
+\subsection{Initial Placement}\label{iplacemt}
+
+At the opening of each game, each player's pieces should be arranged into two
+main {\bf clusters}, each of which consists of one Bard, one Fool,
+and one Herald, and which should be arranged symmetrically on the Rim Tier
+nearest the player as shown in \figref{iplace_fig}
+\latex{on page \pageref{iplace_fig}}.  Player 1's pieces
+are shown in {\bf \acolor}, and Player 2's pieces are shown in
+{\bf \bcolor}.
+
+\begin{figure}
+  \begin{makeimage}
+    \latex{\includegraphics*[width=\textwidth]{pics/newgame-\bwcolor.\pspdf}}
+  \end{makeimage}
+  \begin{rawhtml}
+    <center><img align="center" src="newgame.png"></center>
+  \end{rawhtml}
+  \caption{Initial Placement of Pieces}
+  \label{iplace_fig}
+\end{figure}
+
+Bards begin the game on the ambiguous spaces.
+On the first shaded space behind ({\sl backwards} of) each bard's
+position, a fool should be placed.  The Heralds begin the game
+on the unshaded Rim spaces behind the Fools' initial positions.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "~/text/projects/know/tex/know"
+%%% End: 

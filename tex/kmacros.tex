@@ -1,0 +1,176 @@
+% -*- Mode: LaTeX -*-
+%        File: kmacros.tex
+%      Author: Bryan Jurish <moocow@ling.uni-potsdam.de>
+% Description: know rules: macros
+%---------------------------------------------------------------------------
+
+%--------------------------------------
+% Versioning
+%--------------------------------------
+\newcommand{\kversion}{0.03}
+
+
+%--------------------------------------
+% urls
+%--------------------------------------
+\newcommand{\knowurl}{http://www.ling.uni-potsdam.de/~moocow/know}
+\newcommand{\knowurltx}{http://www.ling.uni-potsdam.de/\~{}moocow/know}
+
+%--------------------------------------
+% dvi(ps) vs. pdf: \ispdf = 0|1
+%--------------------------------------
+\ifx\undefined\pdfoutput\def\ispdf{0}%
+\else\def\ispdf{1}%
+\fi
+
+%--------------------------------------
+% ps vs. pdf stuff: 
+%  \pspdf = ps|pdf
+%  \pspng = ps|png
+% --> extension for embedded graphics
+%--------------------------------------
+\latex{%
+  \ifthenelse{\equal{\ispdf}{0}}{%
+    \newcommand{\pspdf}{ps}%
+    \newcommand{\pspng}{ps}%
+    }{%
+    \newcommand{\pspdf}{pdf}%
+    \newcommand{\pspng}{png}%
+    %--------------------------
+    % Set pdf header information
+    %--------------------------
+    \pdfcompresslevel=9
+    \pdfinfo{%
+      /Author (Bryan Jurish)
+      /CreationDate (D:20011114014100) % (D:YYYYMMDDhhmmss)
+      %/ModDate (D:YYYYMMDDhhmmss)     % auto-generated
+      /Title (know)
+      /Subject (know)
+      /Keywords (know game boardgame)
+      }%
+    \input{pdfdate.tex}%
+    }%
+}
+\html{%
+  \newcommand{\pspdf}{ps}%
+  \newcommand{\pspng}{ps}%
+  }
+
+%--------------------------------------
+% 2-sided vs. 1-sided: \istwosided [doesn't work!]
+%--------------------------------------
+%\ifx\undefined\markright\newcommand{\istwosided}{0}
+%\else\newcommand{\istwosided}{1}
+%\fi
+%--
+%\if@twoside
+%  \newcommand{\istwosided}{1}
+%\else
+%  \newcommand{\istwosided}{0}
+%\fi
+%--
+%\ifx\undefined\@twosidetrue\def\istwosided{0}%
+%\else\def\istwosided{1}%
+%\fi
+
+
+%--------------------------------------
+% color stuff
+%--------------------------------------
+\latex{
+  \ifthenelse{\equal{\iscolor}{0}}{%
+    \newcommand{\bwcolor}{bw}%
+    \newcommand{\acolor}{white}%
+    \newcommand{\bcolor}{black}%
+    }{%
+    \newcommand{\bwcolor}{color}%
+    \newcommand{\acolor}{red}%
+    \newcommand{\bcolor}{blue}%
+    }%
+}%
+\html{%
+  \renewcommand{\iscolor}{1}%
+  \newcommand{\bwcolor}{color}%
+  \newcommand{\acolor}{red}%
+  \newcommand{\bcolor}{blue}%
+  %%%--- color stuff for the 'frames' pacakge
+  %%% include a ``<noframes>...</noframes>'' section for lynx ;-)
+  %\HTMLset{NOFRAMES}{1}
+  %%% text window (defaults from /usr/lib/latex2html/styles/frames.perl)
+  %%\HTMLset{TEXT_COLOR}{
+  %%  bgcolor="#ffffff"
+  %%  text="#000000"
+  %%  link="#9944EE"
+  %%  vlink="#0000ff"
+  %%  alink="#00ff00"
+  %%  }
+  \newcommand{\moocolortan}{"#f7f3de"} % tan
+  \newcommand{\moocolorblack}{"#000000"} % black
+  \newcommand{\moocolorwhite}{"#ffffff"} % white
+  \newcommand{\moocolordblue}{"#001666"} % dark blue
+  \newcommand{\moocolorbblue}{"#0220bc"} % bright blue
+  \newcommand{\moocolorbyellow}{"#fffc70"} % bright yellow
+  \newcommand{\moocolordyellow}{"#cfd393"} % dark yelow
+  \newcommand{\moocolorpurple}{"#4e0176"} % purple
+  \newcommand{\mootextcolor}{
+    bgcolor=\moocolortan
+    text=\moocolorblack
+    link=\moocolordblue
+    vlink=\moocolorpurple
+    alink=\moocolorbblue
+    }
+  \HTMLset{TEXT_COLOR}{\mootextcolor}
+  \HTMLset{MAIN_COLOR}{\mootextcolor}
+  \HTMLset{NAVIG_COLOR}{\mootextcolor}
+  \HTMLset{FOOT_COLOR}{\mootextcolor}
+  \HTMLset{TOC_COLOR}{
+    bgcolor=\moocolordblue
+    text=\moocolorwhite
+    link=\moocolortan
+    vlink=\moocolordyellow
+    alink=\moocolorbyellow
+    }%
+}%
+
+%--------------------------------------
+% resolution stuff: obsolete (?)
+%--------------------------------------
+\latex{
+  \ifthenelse{\equal{\islores}{1}}{%
+    \newcommand{\hilores}{lo}%
+    }{%
+    \newcommand{\hilores}{hi}%
+    }%
+}%
+\html{%
+  \renewcommand{\islores}{1}%
+  \newcommand{\hilores}{lo}%
+}%
+
+
+%--------------------------------------
+% references
+%--------------------------------------
+\newcommand{\labelledref}[2]{#1 \ref{#2}}
+\newcommand{\secref}[1]{\labelledref{Section}{#1}}
+\newcommand{\appref}[1]{\labelledref{Appendix}{#1}}
+\newcommand{\figref}[1]{\labelledref{Figure}{#1}}
+
+%--------------------------------------
+% for logo & title page
+%--------------------------------------
+\newcommand{\kcopylong}{Copyright \copyright\ 2001 by Bryan Jurish, all rights reserverd.}
+\newcommand{\kdescr}{%
+    Being an Elaboration of a particular Recreational Activity and diverse
+    Conventions, Principles, and Prescripts pertaining thereto.}
+
+% \boardglobe{raise}{width}
+\newcommand{\boardglobe}[2]{%
+  \raisebox{#1}{\includegraphics*[width=#2]{pics/board-globe.\pspng}}%
+}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "know"
+%%% End: 

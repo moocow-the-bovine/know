@@ -1,0 +1,98 @@
+% -*- Mode: LaTeX -*-
+%        File: bonus.tex
+%      Author: Bryan Jurish <moocow@ling.uni-potsdam.de>
+% Description: know rules: bonus rules
+%
+%---------------------------------------------------------------------------
+% \section{Bonus Rules}\label{bonus}
+%---------------------------------------------------------------------------
+\subsection{Conservation of Randomness}\label{conserve}
+  The outcome of a game of \know\ often depends largely on chance,
+  as manifested by die rolls.  For this reason (among others), the
+  principle of {\sl Conservation of Randomness} was introduced.
+  By this principle, every die roll cast in the course of a game
+  of \know\ {\bf must} be moved by some piece.  Some situations
+  where Conservation of Randomness has been applied include
+  the following:
+  \begin{itemize}
+    \item
+      On casting dice to determine which player will initially
+      begin the game, the initiating player does not re-roll
+      the dice for his or her initial move, but rather moves the
+      rolls as cast.
+
+    \item
+      When a {\bf Solipsistic Path} is attempted and fails
+      (case \ref{sopath_nope}), the contender does not re-roll
+      the dice for his or move, but rather moves the rolls as
+      cast for the attempted solipsistic path.
+
+    \item
+      For the Eternal Version, if a player achieves three connections
+      during post-resolution movement with a die roll left unmoved,
+      this roll must be moved by the player who first achieved
+      resolution in his or her initial turn of the following cycle.
+  \end{itemize}
+
+\subsection{Nets}\label{nets}
+  Two pieces are said to be in a {\bf Net Relation} to one another
+  when the following conditions apply:
+  \begin{enumerate}
+    \item The pieces are of the same type
+    \item The pieces occupy correspondent spaces on different quadrants of the board.
+  \end{enumerate}
+
+  In other words, a  Net Relation between two pieces is very similar to a
+  connection relation, except that the Netted pieces need not be members
+  of the same color-alignment, and that the Netted members need not be on opposite
+  {\bf sides} of the board (as with connections), but rather only on different
+  quadrants. For each space on the board, there are exactly three other
+  spaces on the board in which a sibling piece, regardless of alignment,
+  might stand to produce a ``netted'' relation.  (Recall that an alignment
+  is a group of six pieces as played by a single player in the two-player
+  version of the game.)
+
+  A {\bf Polar Net} occurs when the Netted pieces are in adjacent quadrants: when
+  a Connection relation could {\sl not} exist between the spaces occupied by the Netted
+  pieces.  A {\bf Balanced Net} occurs when the Netted pieces are not in adjacent
+  quadrants: when a Connection relation {\sl could} exist between the spaces occupied
+  by the netted pieces.
+
+  The {\bf Duration} of a Net is the span of time during which at least one piece of
+  the Net Type (the type of the Netted pieces - bards, fools, or heralds) finds itself
+  in a species of Net Relation (polar or balanced) with some other piece of the Net
+  Type at the beginning or end of a piece's move, similar to Connections.
+
+\subsubsection{The Conduit and the Conversation}\label{conduit}
+
+  A Netted piece may act as a {\bf Conduit} for another piece of the same type, to
+  allow its sibling piece to perform a type of move known as a {\bf Conversation}.
+  A Conduit is said to be Polar or Balanced, depending on the flavor of Net in
+  which it is participating.
+
+  The Conversation bears some resemblance to the Solipsistic Path or the Significant
+  Errand, in that it can allow a piece to move through spaces influenced by a 
+  piece of the other alignment.  A Conversation differs from a Solipsistic Path or
+  Significant Errand, however, in that no die rolls are required in order to
+  determine whether or not such a move is possible.  A Conversation is said to be
+  {\bf two-sided} if the piece acting as Conduit is a member of a Balanced Net,
+  {\bf one-sided} otherwise.
+
+  A One-Sided Conversation allows free movement by pieces of the Net Type 
+  through spaces influenced by any pieces of the Net Type, for the duration of the
+  Conversation.  Effectively, all spaces influenced by pieces of
+  the Net Type are ``turned off'' for all pieces of that type
+  for the duration of a balanced net.
+
+  A Two-Sided Conversation allows all pieces of the Net Type to move freely through
+  spaces influenced by any pieces {\sl not} of the Net Type, for the duration of the
+  Conversation, i.e. as long as there is a Balanced Net relation between two of the
+  Net-type pieces.
+
+  Note that for pieces not of the Net Type, spaces continue to be influenced as
+  usual.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "~/text/projects/know/tex/know"
+%%% End: 

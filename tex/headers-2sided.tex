@@ -1,0 +1,29 @@
+% -*- Mode: LaTeX -*-
+%        File: kheaders-2sided.tex
+%      Author: Bryan Jurish <moocow@ling.uni-potsdam.de>
+% Description: know rules: headers (2-sided)
+%---------------------------------------------------------------------------
+
+\renewcommand{\sectionmark}[1]{\markboth{\thesection.\ #1}{}}
+
+\fancyhead[RO]{\bfseries\leftmark}
+\fancyhead[LE]{\ifthenelse{\equal{\islores}{1}}{\klogolores}{\klogo}}
+\fancyfoot[CE,CO]{\bfseries\thepage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{2pt}
+
+\fancypagestyle{plain}{%
+  \fancyhead{} % clear headers for ``plain'' pages == chapter-initial pages
+  \fancyfoot{} % ... and footers, too
+  \renewcommand{\headrulewidth}{0pt} % ... and those pesky lines
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyfoot[CE,CO]{\bfseries\thepage}  % put the page numbers at bottom center
+}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "know"
+%%% End: 

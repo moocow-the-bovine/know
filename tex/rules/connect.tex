@@ -1,0 +1,197 @@
+% -*- Mode: LaTeX -*-
+%        File: connect.tex
+%      Author: Bryan Jurish <moocow@ling.uni-potsdam.de>
+% Description: know rules: connections & resolution
+%
+%---------------------------------------------------------------------------
+%\section{Concerning Connections and Resolution}\label{connectres}
+%---------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------
+% Connections
+%---------------------------------------------------------------------------
+\subsection{Connections}\label{connect}
+
+Two pieces are said to be {\bf connected} if the following
+conditions all apply to the positions of those pieces on the board:
+
+\begin{enumerate}
+  \item
+    The pieces occupy ``corresponding spaces'' on opposite sides of the
+    center of the board.
+
+  \item
+    The pieces are the of the same {\bf type} -- only
+    Fools can be connected with Fools, only
+    Bards with Bards, etc.
+
+  \item
+    The pieces belong to the same player.
+\end{enumerate}
+
+\subsubsection{Correspondence}\label{corresp}
+The board contains exactly fifty pairs of {\sl corresponding spaces}.
+Two spaces are said to ``correspond'' if and only if:
+\begin{enumerate}
+  \item
+    At least one side of each piece's occupied space is
+    collinear with exactly one line which passes through the
+    center of the board.
+
+  \item
+    The occupied spaces are on the same Tier of the board.
+\end{enumerate}
+
+Phrased differently, two spaces correspond if they 
+are mirror-images separated by 180 degrees.  See
+\figref{connect_fig} for an example.
+
+
+\begin{figure}
+  \makeimage{%
+    \latex{%
+      \includegraphics*[width=\textwidth]{pics/connect-\bwcolor.\pspdf}%
+      }%
+  }
+  \begin{rawhtml}
+    <center><img align="center" src="connect.png"></center>
+  \end{rawhtml}
+  \caption{Resolving and Non-Resolving Connections}
+  \label{connect_fig}
+\end{figure}
+
+
+%---------------------------------------------------------------------------
+% Resolution
+%---------------------------------------------------------------------------
+\subsection{Resolution}\label{resolution}
+To make and maintain connections on each of Rim, First Tier, and Second Tier
+is the primary goal of a game of \know.
+The player who first achieves all three of these simultaneous connections is said
+to have {\bf Resolved} the game.
+
+For beginners, the suggested rules for determing if a pattern of three connections
+is a {\bf resolved} pattern are simply these: a resolved pattern must consist of
+one connection on Rim, one connection on First Tier, and one connection on
+Second Tier.  Connections on the Center Tier cannot be resolving connections.
+
+The following discussion of {\sl Connections} and {\sl Resolving Connections}
+refers to \figref{connect_fig}\latex{ on page \pageref{connect_fig}}.
+
+
+In \figref{connect_fig}, most of the pieces shown are {\sl connected},
+except for the \bcolor\ Bards.  Only the \bcolor\ Bards are not connected because, although
+there is a certain symmetry between the spaces they occupy, the line of symmetry does
+not pass through the center of the board.  In terms of the formal definition of a connection,
+they are not connected because none of the line-segments which form any of their spaces'
+sides are, in fact, on the same line themselves.  In terms of the less formal definition
+of connections, the \bcolor\ Bards are separated by less than 180 degrees on the
+board.
+
+The \acolor\ pieces in \figref{connect_fig} show a Resolving pattern:
+the Fools are connected on the Rim,
+the Bards are connected on the First Tier, and the Heralds are connected on the
+Second Tier.  Since the \bcolor\ Bards are not connected, \bcolor\ cannot be
+Resolved.  Nonetheless, the \bcolor\ player could achieve resolution by
+establishing a connection between his or her Bards on either Rim or on First
+Tier, since the \bcolor\ Heralds are connected on the Second Tier, and the
+\bcolor\ Fools are connected on ambiguous spaces.\footnote{
+  See \secref{layout} for details on ambiguous spaces.
+  }
+
+
+%---------------------------------------------------------------------------
+% Post-Resolution
+%---------------------------------------------------------------------------
+\subsection{Post-Resolution}\label{postres}
+
+Once one of the players has Resolved a game (or round), his or her pieces may
+not move again in the course of that game/round.  Since the player who resolves
+the game may well owe this fact to pure chance, the non-resolved player receives
+a post-resolution chance to complete his or her own resolution pattern.
+The procedure for post-resolution play, in which only the player who is not resolved
+moves his or her pieces, is as follows:
+
+\begin{enumerate}
+  \item
+    If the Unresolved player already has three connections at Resolution, then the
+    game (or round) is ended.  Otherwise, if the Unresolved player has fewer than
+    three connections, he or she should roll the die as usual, immediately following
+    Resolution.
+
+  \item
+    If it is possible to move any currently unconnected piece the exact number
+    of spaces indicated by the die roll, allowing movement through but not into
+    any Points of Contention and make a connection, the Unresolved player may do
+    so.
+
+  \item
+    If the Unresolved player made a connection on the Post-Resolution roll, then he or she
+    may roll the die again, moving another as yet unconnected piece according to the
+    above Post-Resolution movement rules, earning another die roll if a connection
+    is made on that move.
+
+  \item
+    This process continues until the Unresolved player either
+    cannot make a connection with the die roll he or she received, or until the
+    Unresolved player has three connections.
+\end{enumerate}
+
+%---------------------------------------------------------------------------
+% Scoring
+%---------------------------------------------------------------------------
+\subsubsection{Scoring}\label{scoring}
+  To determine the winner of the game (if you must), each player should tally up
+  the number of spaces influenced by connected pieces of his or her color, excluding
+  any points of contention from this tally, and any player whose pieces are in a Resolved
+  pattern adds an extra six influence points for the balanced pattern of three connections
+  between six pieces he or she has achieved.  The rationale behind the six-point
+  {\sl Resolution Bonus} is that player
+  with a Resolved pattern receives influence points not only for the spaces his or her
+  pieces influence, but also for the spaces they occupy.
+
+  Note that spaces influenced by pieces which are not connected are not added
+  to this tally.
+
+   Note also that the tallies should reflect the number of {\bf spaces} influenced by pieces
+   of that player, which is not necessarily the sum of the number of spaces influenced by
+   all of that player's pieces.  If, for instance, a player's connections were such that
+   more than one of his or her connected pieces influenced the same space, that player
+   would add that space only once to his or her tally, since the tally is of total spaces
+   influenced.  Of course, if this same space were also a point of
+   contention, neither player would not be allowed to add it to his or her tally at all.
+
+
+\endinput
+
+The formal rules regarding the pieces which may be used for Resolving Connections
+and other conditions for these connections are as follows:
+
+\begin{itemize}
+  \item Fools may have a Resolving Connection on either First or Second Tier.
+
+  \item Heralds may have a Resolving Connection on either on Rim or First Tier.
+
+  \item Bards may have a Resolving Connection on any Tier except Center.
+
+  \item No pieces may have resolution-type connections on Ambiguous or Center spaces.
+
+  \item
+    The Resolving Rim Connection must be on a non-ambiguous space.
+
+  \item
+    The Resolving First Tier Connection must be either on a black space, in the case
+    that the Resolving Rim Connection is on a non-ambiguous white space; or on a white
+    space, in the case that the Resolving Rim Connection is on a non-corner black space.
+    All that is important for this rule is this:  a player's Resolving First Tier Connection
+    must be on a space which is of opposite color to that player's Resolving Rim Connection.
+
+  \item
+    The Resolving Second Tier Connection must be on the same color space as the
+    player's Resolving Rim Connection, and must not be on an ambiguous space.
+\end{itemize}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "~/text/projects/know/tex/know"
+%%% End: 
