@@ -70,7 +70,7 @@ source "ui.tcl"
 
 
 ;# =========================== Hacks ==============================
-set DEVEL 0
+set DEVEL 1
 if {$DEVEL} {
     source "marks.tcl"
     source "hacks.tcl"
