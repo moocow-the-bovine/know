@@ -4,7 +4,7 @@
 # source directories
 #-----------------------------------------------------------------------
 TOP_SRC = .
-PDF_SRC = ../pdftex
+PDF_SRC = ../tex
 HTML_SRC = $(PDF_SRC)/know-html
 FRAMES_SRC = $(PDF_SRC)/know-frames
 BOARD_SRC = $(TOP_SRC)/boards
