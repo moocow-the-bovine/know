@@ -2,7 +2,12 @@ old
 arc
 *.save
 
+board
+wserver
+
 *~
 .*~
 \#*
 .\#*
+
+
