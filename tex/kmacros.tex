@@ -7,21 +7,31 @@
 %--------------------------------------
 % Versioning
 %--------------------------------------
-\newcommand{\kversion}{0.03}
+\newcommand{\kversion}{0.04}
 
 
 %--------------------------------------
 % urls
 %--------------------------------------
-\newcommand{\knowurl}{http://www.ling.uni-potsdam.de/~moocow/know}
-\newcommand{\knowurltx}{http://www.ling.uni-potsdam.de/\~{}moocow/know}
+\newcommand{\knowurl}{http://www.cudmuncher.de/~moocow/know}
+\newcommand{\knowurltx}{http://www.cudmuncher.de/\~{}moocow/know}
 
 %--------------------------------------
 % dvi(ps) vs. pdf: \ispdf = 0|1
-%--------------------------------------
-\ifx\undefined\pdfoutput\def\ispdf{0}%
-\else\def\ispdf{1}%
-\fi
+% --------------------------------------
+%%-- nope 2024-03-14
+%\ifx\undefined\pdfoutput\def\ispdf{0}%
+%\else\ifx\pdfoutput{}0\def\ispdf{0}%
+%\else\def\ispdf{1}%
+%\fi%
+%\fi%
+%%
+%%--nope 2024-03-14
+%\ifx\pdfoutput\undefined\def\ispdf{0}
+%\else\ifx\pdfoutput\relax%
+%\else\def\ispdf{0}%
+%\fi%
+%\fi%
 
 %--------------------------------------
 % ps vs. pdf stuff: 
@@ -159,7 +169,7 @@
 %--------------------------------------
 % for logo & title page
 %--------------------------------------
-\newcommand{\kcopylong}{Copyright \copyright\ 2001 by Bryan Jurish, all rights reserverd.}
+\newcommand{\kcopylong}{Copyright \copyright\ 2001--2024 by Bryan Jurish, all rights reserverd.}
 \newcommand{\kdescr}{%
     Being an Elaboration of a particular Recreational Activity and diverse
     Conventions, Principles, and Prescripts pertaining thereto.}

@@ -51,17 +51,22 @@ all: $(TARGETS)
 #-----------------------------------------------------------------------
 pdf: $(PDF_TARGETS)
 
+define pstoeps
+  #ps2epsi $< $@
+  ps2eps -F -f --ignoreBB $(1) && test "$(1:.ps=.eps)" = "$(2)" || mv -v "$(1:.ps=.eps)" "$(2)"
+endef
+
 %.eps: sources/boards/%.ps
-	ps2epsi $< $@
+	$(call pstoeps,$<,$@)
 
 %.eps: sources/examples/%.ps
-	ps2epsi $< $@
+	$(call pstoeps,$<,$@)
 
 %.eps: sources/keys/%.ps
-	ps2epsi $< $@
+	$(call pstoeps,$<,$@)
 
 %.eps: sources/pieces/%.ps
-	ps2epsi $< $@
+	$(call pstoeps,$<,$@)
 
 %.pdf: %.eps
 	epstopdf $<

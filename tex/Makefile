@@ -427,14 +427,15 @@ view-frames: $(FRAMES_TARGET_FILE)
 ######################################
 pdf: $(TEXBASE).pdf
 
-%-ps2pdf.pdf: %.ps
+%.pdf: %.ps
 	$(PS2PDF) $<
 
-$(TEXBASE).pdf: $(PDFDATE_FILE)
-	$(PDFLATEX) $(TEXMASTER)
-
-$(PDFDATE_FILE): $(TEXMASTER) $(TEXTARGETS)
-	echo "\\pdfinfo{/ModDate (D:$(PDFDATE_STR))}" > $(PDFDATE_FILE)
+##-- broken 2024-03-14
+#$(TEXBASE).pdf: $(PDFDATE_FILE)
+#	$(PDFLATEX) $(TEXMASTER)
+#
+#$(PDFDATE_FILE): $(TEXMASTER) $(TEXTARGETS)
+#	echo "\\pdfinfo{/ModDate (D:$(PDFDATE_STR))}" > $(PDFDATE_FILE)
 
 ######################################
 # pdf targets (preview)
