@@ -1,0 +1,90 @@
+* Points
+** Origin
+- o: center of board
+** Real Points (on rim)
+- schema: p{i}, 0 ≤ i < 16
+** Imaginary Points (on rim)
+- schema: p{i}i ~ p{i}.5, i odd (i % 2 == 1)
+* Segments
+** Radii
+- r{i}: 1 ≤ i < 8
+- equivalences
+  + r{i} = r{i-8} = r{i+8}
+  + r0 ~ r8
+  + r1 ~ r9
+  + r2 ~ r10
+  + r3 ~ r11
+  + r4 ~ r12
+  + r5 ~ r13
+  + r6 ~ r14
+  + r7 ~ r15
+** Chords (vertical or horizontal)
+- long chords (+7), n=4
+  + s{i}> : p{i} -- p{i+7} , i ∈ {1,5,9,13} : i = 4Q+1 (clockwise shortest rim arc)
+  + s{i}< : p{i} -- p{i-7} , i ∈ {0,4,8,12} : i = 4Q   (widdershins shortest rim arc)
+  + equivalences
+    - s0< ~ s9>
+    - s1> ~ s8<
+    - s4< ~ s13>
+    - s5> ~ s12<
+- medium chords (+5), n=4
+  + s{i}> : p{i} -- p{i+5} , i ∈ {2,6,10,14} : i = 4Q+2 (clockwise)
+  + s{i}< : p{i} -- p{i-5} , i ∈ {7,11,15,3} : i = 4Q+3 (widdershins)
+  + equivalences:
+    - s2> ~ s7<
+    - s6> ~ s11<
+    - s10> ~ s15<
+    - s14> ~ s3<
+- short chords (+3)
+  + s{i}>: p{i} -- p{i+3} , i ∈ {3,7,11,15} : i = 4Q+3 (clockwise)
+  + s{i}<: p{i} -- p{i-3} , i ∈ {6,10,14,2} : i = 4Q+2 (widdershins)
+** Arcs (rim segments)
+- z{i}> : p{i} -- p{i+1}
+- z{i}< : p{i} -- p{i-1}
+** Imaginary segments
+- schema: s{i}i, i odd
+* Slices
+- bounded by center and 2 radii: all spaces in that triangle
+** Wedges (1/16 slices)
+- schema: W{i}: p{i} .. p{i+1}
+** Quadrants (1/4 slices)
+- schema: Q{i}: p{4*i} .. p{(4+1)*i}
+  + root(Q{i}) = i  # used as "Q" in expressions above, e.g. 4Q+1
+- Q0: p0 .. p4 ~ W{i}, 1 ≤ i < 4
+- Q1: p4 .. p8 ~ W{i}, 4 ≤ i < 8
+- Q2: p8 .. p12 ~ W{i}, 8 ≤ i < 12
+- Q3: p12 .. p0 ~ W{i}, 12 ≤ i < 16
+* Spaces
+- coventions (work in progress)
+  - spaces are numbered independently in each wedge
+  - rim-/1st-/2nd-/center-tier spaces matchs globs 0*/1*/2*/3*
+  - space naming ("a" ~ "area"): a{wedge}.{tier}{suffix}
+** W0 spaces
+- a0.0 black : r0 -- z0> -- r1 -- s2<
+- a0.1 white : r0 -- s2< -- r1 -- s3<
+- a0.2 black : r0 -- r3< -- r1 -- s4<
+- a0.3 white : r0 -- s4< -- r1
+** W1 spaces
+- a1.0a white : r1 -- s1> -- s2< ~ r1 -- z1 -- s1i
+- a1.0a black : s1> -- z1 -- s2< ~ s1i -- z1i -- s2<
+- a1.1a black : r1 -- s2< -- s1> -- s3<
+- a1.1b white : s1> -- s2< -- r2 -- s3<
+- a1.2a white : r1 -- s3< -- s1> -- r2 -- s4<
+- a1.2b black : s1> -- s3< -- r2
+- a3 : r1 -- s4< -- r2
+** W2 spaces
+- a2.0 white : z2 -- s3< -- s2>
+- a2.1a black : r2 -- s2> -- s3<
+- a2.1b black : s3< -- r3 -- s2>
+- a2.2a white : r2 -- s3< -- s2> -- r3 -- s4< -- s1>
+- a2.2b black : r2 -- s2> -- s4<
+- a2.2c black : s4< r3 -- s1>
+- a2.3 white : r2 -- s4< -- s1> -- r3
+** W3 spaces
+- a3.0a black : z3 -- s4< -- s3> ~ z3 -- s3i -- s3>
+- a3.0b white : s4 -- r4 -- s3> ~ s3i -- z3 -- r4 -- s3>
+- a3.1a white : r3 -- s3> -- s4< -- s2>
+- a3.1b black : s4< -- s3> -- r4 -- s2>
+- a3.2a black : r3 -- s2> -- s4<
+- a3.2b white : r3 -- s4< -- s2> -- r4 -- s1>
+- a3.3 black : r3 -- s1> -- r4
