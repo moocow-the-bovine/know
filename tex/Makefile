@@ -1,7 +1,7 @@
 # -*- Mode: Makefile -*-
 #
 #        File: Makefile
-#      Author: Bryan Jurish <moocow@ling.uni-potsdam.de>
+#      Author: Bryan Jurish <moocow@cudmuncher.de>
 # Description: Generic Makefile for LaTeX documents with many targets
 #   User Vars: $(TEXBASE), $(TEXFILES), etc.
 #     Outputs: dvi, html, html-zip, frames, frames-zip, pdf, ps, ps2 (2-sided),
@@ -81,7 +81,7 @@ STAMP_DEST_DIR = $(ARC_DEST_DIR)
 ARC_TARGETS = Makefile $(TEXTARGETS) $(wildcard *.bib) $(wildcard *.vst)
 
 # HTML: Author address
-HTML_ADDRESS := "<a href=mailto:moocow@ling.uni-potsdam.de>Bryan Jurish</a><br>`date`"
+HTML_ADDRESS := "<a href=mailto:moocow@cudmuncher.de>Bryan Jurish</a><br>`date`"
 # HTML: Title
 HTML_TITLE = "know"
 # HTML: Language
