@@ -18,6 +18,7 @@ BOARD_BASE = $(foreach size,iso-a4 iso-a3 iso-a2 iso-a1 iso-a0\
 			    ansi-a ansi-b ansi-c ansi-d ansi-e,\
 		knowboard-$(size))
 BOARD_SRCS = $(patsubst %,$(BOARD_SRC)/%,$(BOARD_BASE))
+BOARD_SVGS = knowboard.svg knowboard.debug.svg knowboard.quadrant.svg
 
 # hacks
 HTMLPDF_SRCS = $(patsubst %,%.pdf,$(HTML_SRC) $(FRAMES_SRC))
@@ -40,7 +41,7 @@ TOP_TARGETS = $(patsubst $(TOP_SRC)/%,$(TOP_DST)/%,$(TOP_SRCS))
 PDF_TARGETS = $(patsubst $(PDF_SRC)/%,$(PDF_DST)/%,$(PDF_SRCS))
 HTML_TARGETS = $(patsubst $(HTML_SRC)/%,$(HTML_DST)/%,$(HTML_SRCS))
 FRAMES_TARGETS = $(patsubst $(FRAMES_SRC)/%,$(FRAMES_DST)/%,$(FRAMES_SRCS))
-BOARD_TARGETS = $(patsubst %,$(BOARD_DST)/%.pdf,$(BOARD_BASE))
+BOARD_TARGETS = $(patsubst %,$(BOARD_DST)/%.pdf,$(BOARD_BASE)) $(addprefix $(BOARD_DST)/,$(BOARD_SVGS))
 
 #		$(patsubst %,$(BOARD_DST)/%.ps.gz,$(BOARD_BASE))
 
@@ -52,7 +53,9 @@ TARGETS = $(TOP_TARGETS) $(PDF_TARGETS) $(HTML_TARGETS) $(FRAMES_TARGETS) \
 # for archiving & snapshots
 ######################################
 ARC_TARGETS = $(TOP_SRC)/Makefile \
-	      $(TOP_SRCS) $(patsubst %,%.ps,$(BOARD_SRCS))
+	      $(TOP_SRCS) \
+	      $(patsubst %,%.ps,$(BOARD_SRCS)) \
+	      $(addprefix boards/,$(BOARD_SVGS))
 SNAP_TARGETS = $(TOP_TARGETS) $(PDF_TARGETS)
 SNAP_DIRTARGETS = $(HTML_DST) $(FRAMES_DST)
 
@@ -107,16 +110,17 @@ init:
 	$(foreach pdf,\
 	  $(patsubst $(PDF_SRC)/%.pdf,%,$(PDF_SRCS))\
 	  $(patsubst $(PDF_SRC)/%.pdf,%,$(HTMLPDF_SRCS)),\
-		$(MAKE) -C $(PDF_SRC) pdflatex-$(pdf); \
-		$(MAKE) -C $(PDF_SRC) pdflatex-$(pdf); )
+		$(MAKE) -C $(PDF_SRC) latex-$(pdf); \
+		$(MAKE) -C $(PDF_SRC) latex-$(pdf); )
 
 .PHONY: latex pdflatex
 latex:
 	$(foreach pdf,\
 	  $(patsubst $(PDF_SRC)/%.pdf,%,$(PDF_SRCS))\
 	  $(patsubst $(PDF_SRC)/%.pdf,%,$(HTMLPDF_SRCS)),\
-		$(MAKE) -C $(PDF_SRC) latex-$(pdf); )
+		$(MAKE) -C $(PDF_SRC) latex-$(pdf) $(pdf).pdf ;)
 
+# broken 2024-03-17
 pdflatex:
 	$(foreach pdf,\
 	  $(patsubst $(PDF_SRC)/%.pdf,%,$(PDF_SRCS))\
@@ -164,19 +168,26 @@ $(PDF_DST)/%: $(PDF_DST) $(PDF_SRC)/%
 ###################################################
 boards: $(BOARD_TARGETS)
 
-$(BOARD_DST)/%.ps.gz: $(BOARD_DST) $(BOARD_DST)/%.ps
+$(BOARD_DST)/%.ps.gz: $(BOARD_DST)/%.ps
 	rm -f $@
+	$(MAKE) $(BOARD_DST) 
 	gzip $(BOARD_DST)/$*.ps
 	$(CHMOD) $(FILE_MODE) $@
 
-$(BOARD_DST)/%.ps: $(BOARD_DST) $(BOARD_SRC)/%.ps
+$(BOARD_DST)/%.ps: $(BOARD_SRC)/%.ps
+	$(MAKE) $(BOARD_DST)
 	$(CP) $(CP_FLAGS) $(BOARD_SRC)/$*.ps $@
 	$(CHMOD) $(FILE_MODE) $@
 
-$(BOARD_DST)/%.pdf: $(BOARD_DST) $(BOARD_SRC)/%.ps
+$(BOARD_DST)/%.pdf: $(BOARD_SRC)/%.ps
+	$(MAKE) $(BOARD_DST)
 	epstopdf --outfile=$@ $(BOARD_SRC)/$*.ps
 	$(CHMOD) $(FILE_MODE) $@
 
+$(BOARD_DST)/knowboard%svg: $(TOP_SRC)/../board-svg/board%svg
+	$(MAKE) $(BOARD_DST)
+	cp -a ../board-svg/board$*svg $(BOARD_SRC)/$(notdir $@)
+	cp -a ../board-svg/board$*svg $@
 
 ###################################################
 # HTML

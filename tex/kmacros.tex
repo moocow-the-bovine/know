@@ -13,8 +13,8 @@
 %--------------------------------------
 % urls
 %--------------------------------------
-\newcommand{\knowurl}{http://www.cudmuncher.de/~moocow/know}
-\newcommand{\knowurltx}{http://www.cudmuncher.de/\~{}moocow/know}
+\newcommand{\knowurl}{https://www.cudmuncher.de/~moocow/know}
+\newcommand{\knowurltx}{https://www.cudmuncher.de/\~{}moocow/know}
 
 %--------------------------------------
 % dvi(ps) vs. pdf: \ispdf = 0|1
@@ -32,6 +32,9 @@
 %\else\def\ispdf{0}%
 %\fi%
 %\fi%
+%%
+%%-- 2024-03-14: always set ispdf=0
+\renewcommand{\ispdf}{0}
 
 %--------------------------------------
 % ps vs. pdf stuff: 
@@ -48,18 +51,19 @@
     \newcommand{\pspng}{png}%
     %--------------------------
     % Set pdf header information
+    % - broken 2024-03-14
     %--------------------------
-    \pdfcompresslevel=9
-    \pdfinfo{%
-      /Author (Bryan Jurish)
-      /CreationDate (D:20011114014100) % (D:YYYYMMDDhhmmss)
-      %/ModDate (D:YYYYMMDDhhmmss)     % auto-generated
-      /Title (know)
-      /Subject (know)
-      /Keywords (know game boardgame)
-      }%
-    \input{pdfdate.tex}%
-    }%
+    %\pdfcompresslevel=9
+    %\pdfinfo{%
+    %  /Author (Bryan Jurish)
+    %  /CreationDate (D:20011114014100) % (D:YYYYMMDDhhmmss)
+    %  %/ModDate (D:YYYYMMDDhhmmss)     % auto-generated
+    %  /Title (know)
+    %  /Subject (know)
+    %  /Keywords (know game boardgame)
+    %  }%
+    %\input{pdfdate.tex}%
+  }%
 }
 \html{%
   \newcommand{\pspdf}{ps}%
